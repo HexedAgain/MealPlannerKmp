@@ -1,0 +1,105 @@
+{
+  "title": "Spaghetti Bolognese",
+  "description": "Our best ever spaghetti bolognese is super easy and a true Italian classic with a meaty, chilli sauce. This pasta bolognese recipe is sure to become a family favourite.",
+  "image": "https://media.delight.video/0c18e53b610964fac175fe0e757adc30557e79b7/3bc1208e7a20c38eba142fc1478c3b3407c76f40/POSTER_USER/v0/3bc1208e7a20c38eba142fc1478c3b3407c76f40.jpeg?quality=90",
+  "video": "",
+  "nutrition": {
+    "calories": { "kcal":  624 },
+    "fat": { "grams": 24 },
+    "saturates": { "grams": 10 },
+    "carbs": { "grams":  58 },
+    "fibre": { "grams":  6 },
+    "protein": { "grams":  35 },
+    "salt": { "grams":  1.6 }
+  },
+  "preparation_time": { "mins": 25 },
+  "cook_time": { "hours": 1, "mins": 50 },
+  "difficulty": "EASY",
+  "serves": 6,
+  "ratings": 4.5,
+  "ingredients": {
+    "global": [
+      { "olive oil": { "qty": 1, "unit":  "tbsp" } },
+      { "rashers smoked streaky bacon": { "qty": 4, "details": "finely chopped" } },
+      { "medium onions": { "qty": 2, "details": "finely chopped" } },
+      { "carrots": { "qty": 2, "details": "trimmed and finely chopped" } },
+      { "celery sticks": { "qty": 2, "details": "finely chopped" } },
+      { "garlic cloves": { "qty": 2, "details": "finely chopped" } },
+      { "rosemary leaves": { "qty_min": 2, "qty_max": 3, "details": "finely chopped", "unit": "sprigs" } },
+      { "beef mince": { "qty":  500, "unit": "grams" } }
+    ],
+    "For the bolognese sauce": [
+      { "plum tomatoes": { "qty": 2, "unit":  "400g tins" } },
+      { "small pack basil leaves picked": { "qty":  1, "details": "3/4 finely chopped and the rest left for garnish" } },
+      { "dried oregano": { "qty":  1, "unit": "tbsp" } },
+      { "beef stock cube": { "qty":  1 } },
+      { "red chilli": { "qty": 1, "details": "deseeded and finely chopped", "optional": true } },
+      { "red wine": { "qty": 125, "unit": "ml" } },
+      { "cherry tomatoes": { "qty": 6, "details": "sliced in half" } }
+    ],
+    "To season and serve": [
+      { "parmesan": { "qty": 75, "unit": "grams", "details": "grated, plus extra to serve" } },
+      { "spaghetti": { "qty": 400, "unit": "grams" } },
+      { "crusty bread": { "qty": 1, "details": "to serve", "optional": true } }
+    ]
+  },
+  "timeline_steps": {
+    "timelines": [
+      {
+        "start": { "mins": 0 },
+        "steps": [
+          {
+            "title": "Step 1",
+            "body": "Put a large saucepan on a medium heat and add 1 tbsp olive oil.",
+            "time": { "mins": 0 }
+          },
+          {
+            "title": "Step 2",
+            "body": "Add 4 finely chopped bacon rashers and fry for 10 mins until golden and crisp.",
+            "time": { "mins": 10 }
+          },
+          {
+            "title": "Step 3",
+            "body": "Reduce the heat and add the 2 onions, 2 carrots, 2 celery sticks, 2 garlic cloves and the leaves from 2-3 sprigs rosemary, all finely chopped, then fry for 10 mins. Stir the veg often until it softens.",
+            "time": { "mins": 10 }
+          },
+          {
+            "title": "Step 4",
+            "body": "Increase the heat to medium-high, add 500g beef mince and cook stirring for 3-4 mins until the meat is browned all over.",
+            "time": { "mins_lower": 3, "mins_upper": 4 }
+          },
+          {
+            "title": "Step 5",
+            "body": "Add 2 tins plum tomatoes, the finely chopped leaves from 3/4 small pack basil, 1 tsp dried oregano, 2 bay leaves, 2 tbsp tomato purée, 1 beef stock cube, 1 deseeded and finely chopped red chilli (if using), 125ml red wine and 6 halved cherry tomatoes. Stir with a wooden spoon, breaking up the plum tomatoes.",
+            "time": { "mins_lower": 1, "mins_upper": 5 }
+          },
+          {
+            "title": "Step 6",
+            "body": "Bring to the boil, reduce to a gentle simmer and cover with a lid. Cook for 1 hr 15 mins stirring occasionally, until you have a rich, thick sauce.",
+            "time": { "mins": 15 }
+          },
+          {
+            "title": "Step 7",
+            "body": "Add the 75g grated parmesan, check the seasoning and stir.",
+            "time": { "mins": 15 }
+          }
+        ]
+      },
+      {
+        "start": { "timeline_ref": 0, "title_ref": "Step 6", "offset":  { "mins": 10 } },
+        "steps": [
+          {
+            "title": "Step 8",
+            "body": "When the bolognese is nearly finished, cook 400g spaghetti following the pack instructions.",
+            "time": { "mins_lower": 5, "mins_upper": 10 }
+          },
+          {
+            "title": "Step 9",
+            "body": "Drain the spaghetti and either stir into the bolognese sauce, or serve the sauce on top. Serve with more grated parmesan, the remaining basil leaves and crusty bread, if you like.",
+            "time": { "mins": 0 }
+          }
+        ]
+      }
+    ]
+  }
+}
