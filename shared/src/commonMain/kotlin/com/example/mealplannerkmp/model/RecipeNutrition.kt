@@ -4,14 +4,13 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class RecipeNutrition(
-    val items: List<NutritionType>
+    val items: List<NutritionItem>
 )
 
 @Serializable
 data class NutritionItem(
     val type: NutritionType,
-    val qty: Float,
-    val unit: RecipeUnit
+    val qty: RecipeQuantity
 )
 
 @Serializable

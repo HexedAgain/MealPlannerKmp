@@ -12,7 +12,7 @@ kotlin {
             }
         }
     }
-    
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -31,6 +31,8 @@ kotlin {
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
+            implementation(libs.junit.jupiter.api)
+            implementation(libs.junit.jupiter.engine)
         }
     }
 }

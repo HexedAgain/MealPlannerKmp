@@ -7,5 +7,5 @@ data class RecipeQuantity(
     val qty: Float = 0.0f,
     val qtyMin: Float = 0.0f,
     val qtyMax: Float = 0.0f,
-    val unit: RecipeUnit
+    val unit: RecipeUnit = SimpleRecipeUnit.Default
 )

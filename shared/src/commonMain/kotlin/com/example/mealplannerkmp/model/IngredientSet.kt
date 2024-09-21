@@ -18,6 +18,6 @@ sealed interface IngredientClass {
 data class Ingredient(
     val name: String,
     val quantity: RecipeQuantity,
-    val extraDetails: List<String>,
+    val extraDetails: List<String> = listOf(),
     val isOptional: Boolean = false
 )

@@ -26,11 +26,11 @@ data class Recipe(
 ) {
     fun validateCookTime(): Recipe? {
         with (cookTime) {
-            val absTime = mins + 60 * hours
-            val variableTime = (minsUpper - minsLower) + (hoursUpper - hoursLower)
+            val absTimeSecs = secs + mins + 60 * hours * 3600
+            val variableTimeSecs = (secsLower + secsUpper) + (minsUpper - minsLower) * 60 + (hoursUpper - hoursLower) * 3600
             return when {
                 validateTime() == null -> null
-                absTime == 0f && variableTime == 0f -> null
+                absTimeSecs == 0f && variableTimeSecs == 0f -> null
                 else -> this@Recipe
             }
         }
