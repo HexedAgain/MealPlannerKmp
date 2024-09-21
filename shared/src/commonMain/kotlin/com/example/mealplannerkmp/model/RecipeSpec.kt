@@ -1,5 +1,7 @@
 package com.example.mealplannerkmp.model
 
+import kotlin.math.min
+
 val recipe = Recipe(
     title = "Spaghetti Bolognese",
     description = "Our best ever spaghetti bolognese is super easy and a true Italian classic with a meaty, chilli sauce. This pasta bolognese recipe is sure to become a family favourite.",
@@ -148,6 +150,63 @@ val recipe = Recipe(
             )
         ),
     ),
-    timelineSteps = listOf()
-
+    timelineSteps = listOf(
+        RecipeTimeLine(
+            start = TimeLineStart.AbsoluteTimeLine(time = RecipeTime.Zero),
+            steps = listOf(
+                RecipeStep(
+                    title = "Step 1",
+                    body = "Put a large saucepan on a medium heat and add 1 tbsp olive oil.",
+                    time = RecipeTime.Zero
+                ),
+                RecipeStep(
+                    title = "Step 2",
+                    body = "Add 4 finely chopped bacon rashers and fry for 10 mins until golden and crisp.",
+                    time = RecipeTime(mins = 10f)
+                ),
+                RecipeStep(
+                    title = "Step 3",
+                    body = "Reduce the heat and add the 2 onions, 2 carrots, 2 celery sticks, 2 garlic cloves and the leaves from 2-3 sprigs rosemary, all finely chopped, then fry for 10 mins. Stir the veg often until it softens.",
+                    time = RecipeTime(mins = 10f)
+                ),
+                RecipeStep(
+                    title = "Step 4",
+                    body = "Increase the heat to medium-high, add 500g beef mince and cook stirring for 3-4 mins until the meat is browned all over.",
+                    time = RecipeTime(minsLower = 3f, minsUpper = 4f)
+                ),
+                RecipeStep(
+                    title = "Step 3",
+                    body = "Add 2 tins plum tomatoes, the finely chopped leaves from 3/4 small pack basil, 1 tsp dried oregano, 2 bay leaves, 2 tbsp tomato purée, 1 beef stock cube, 1 deseeded and finely chopped red chilli (if using), 125ml red wine and 6 halved cherry tomatoes. Stir with a wooden spoon, breaking up the plum tomatoes.",
+                    time = RecipeTime(minsLower = 1f, minsUpper = 5f)
+                ),
+                RecipeStep(
+                    title = "Step 6",
+                    body = "Bring to the boil, reduce to a gentle simmer and cover with a lid. Cook for 1 hr 15 mins stirring occasionally, until you have a rich, thick sauce.",
+                    time = RecipeTime(mins = 15f)
+                ),
+                RecipeStep(
+                    title = "Step 7",
+                    body = "Add the 75g grated parmesan, check the seasoning and stir.",
+                    time = RecipeTime(mins = 15f)
+                )
+            )
+        ),
+        RecipeTimeLine(
+            start = TimeLineStart.RelativeTimeLine(
+                timelineRef = 0, titleRef = "Step 6", offset = RecipeTime(mins = 10.0f)
+            ),
+            steps = listOf(
+                RecipeStep(
+                    title = "Step 8",
+                    body = "When the bolognese is nearly finished, cook 400g spaghetti following the pack instructions.",
+                    time = RecipeTime(minsLower = 5f, minsUpper = 10f)
+                ),
+                RecipeStep(
+                    title = "Step 9",
+                    body = "Drain the spaghetti and either stir into the bolognese sauce, or serve the sauce on top. Serve with more grated parmesan, the remaining basil leaves and crusty bread, if you like.",
+                    time = RecipeTime.Zero
+                )
+            )
+        )
+    )
 )

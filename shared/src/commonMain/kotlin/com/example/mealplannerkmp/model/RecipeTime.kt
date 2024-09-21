@@ -14,6 +14,9 @@ data class RecipeTime (
     val hoursLower: Float = 0.0f,
     val hoursUpper: Float = 0.0f
 ) {
+    companion object {
+        val Zero = RecipeTime()
+    }
     fun validateTime(): RecipeTime? {
         return when {
             secs < 0f || secsLower < 0f || secsUpper < 0f -> null
