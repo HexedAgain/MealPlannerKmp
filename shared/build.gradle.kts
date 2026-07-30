@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinSerialization)
+    alias(libs.plugins.jetbrainsCompose)
+    alias(libs.plugins.compose.compiler)
 }
 
 kotlin {
@@ -27,12 +29,24 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(libs.kotlin.serialization)
+            implementation(libs.koin.core)
             //put your multiplatform dependencies here
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
             implementation(libs.junit.jupiter.api)
             implementation(libs.junit.jupiter.engine)
+            implementation(libs.koin.test)
+        }
+        androidMain.dependencies {
+            implementation(libs.compose.ui)
+            implementation(libs.compose.foundation)
+//            implementation(libs.koin.core)
+            implementation(libs.koin.android)
+            implementation(libs.koin.compose)
+        }
+        iosMain.dependencies {
+
         }
     }
 }
@@ -47,4 +61,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+}
+dependencies {
+    implementation(libs.androidx.runtime.android)
 }

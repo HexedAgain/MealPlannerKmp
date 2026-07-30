@@ -26,7 +26,7 @@ android {
         getByName("release") {
             isMinifyEnabled = false
         }
-    }
+}
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -38,9 +38,12 @@ android {
 
 dependencies {
     implementation(projects.shared)
-    implementation(libs.compose.ui)
+//    implementation(libs.compose.ui)
     implementation(libs.compose.ui.tooling.preview)
     implementation(libs.compose.material3)
     implementation(libs.androidx.activity.compose)
+    implementation(libs.koin.android)
+    implementation(libs.koin.core)
+    implementation(libs.koin.compose)
     debugImplementation(libs.compose.ui.tooling)
 }
