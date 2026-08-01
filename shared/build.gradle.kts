@@ -13,17 +13,7 @@ plugins {
 }
 
 kotlin {
-    android() {}
-//    androidTarget {
-//        compilations.all {
-////            kotlinOptions {
-////                jvmTarget = "1.8"
-////            }
-//        }
-//        compilerOptions {
-//            jvmTarget = JvmTarget.JVM_17
-//        }
-//    }
+    android {}
 
     listOf(
         iosX64(),
@@ -62,8 +52,8 @@ kotlin {
 
     android {
         namespace = "com.example.mealplannerkmp"
-        compileSdk = 35
-        minSdk = 28
+        compileSdk = 36
+        minSdk = 32
 //        defaultConfig {
 //            minSdk = 28
 //        }

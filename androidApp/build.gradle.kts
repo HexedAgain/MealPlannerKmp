@@ -8,11 +8,11 @@ plugins {
 
 android {
     namespace = "com.example.mealplannerkmp.android"
-    compileSdk = 35
+    compileSdk = 36
     defaultConfig {
         applicationId = "com.example.mealplannerkmp.android"
-        minSdk = 28
-        targetSdk = 35
+        minSdk = 32
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
     }
