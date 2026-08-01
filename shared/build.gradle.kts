@@ -10,13 +10,15 @@ plugins {
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.androidKotlinMultiplatformLibrary)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.androidx.room3)
 }
 
 kotlin {
     android {}
 
     listOf(
-        iosX64(),
+//        iosX64(),
         iosArm64(),
         iosSimulatorArm64()
     ).forEach {
@@ -31,6 +33,8 @@ kotlin {
             implementation(libs.kotlin.serialization)
             implementation(libs.koin.core)
             //put your multiplatform dependencies here
+            implementation(libs.androidx.room3.runtime)
+            implementation(libs.androidx.sqlite.bundled)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -65,6 +69,21 @@ kotlin {
             jvmTarget = JvmTarget.JVM_17
         }
     }
+}
+
+room3 {
+    schemaDirectory("$projectDir/schemas")
+}
+
+dependencies {
+    dependencies {
+        add("kspAndroid", libs.androidx.room3.compiler)
+        add("kspIosSimulatorArm64", libs.androidx.room3.compiler)
+//        add("kspIosX64", libs.androidx.room3.compiler)
+        add("kspIosArm64", libs.androidx.room3.compiler)
+        // Add any other platform target you use in your project, for example kspDesktop
+    }
+
 }
 
 //dependencies {
