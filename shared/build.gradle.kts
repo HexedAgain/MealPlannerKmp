@@ -5,23 +5,25 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.androidLibrary)
+//    alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinSerialization)
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.androidKotlinMultiplatformLibrary)
 }
 
 kotlin {
-    androidTarget {
-        compilations.all {
-//            kotlinOptions {
-//                jvmTarget = "1.8"
-//            }
-        }
-        compilerOptions {
-            jvmTarget = JvmTarget.JVM_17
-        }
-    }
+    android() {}
+//    androidTarget {
+//        compilations.all {
+////            kotlinOptions {
+////                jvmTarget = "1.8"
+////            }
+//        }
+//        compilerOptions {
+//            jvmTarget = JvmTarget.JVM_17
+//        }
+//    }
 
     listOf(
         iosX64(),
@@ -57,19 +59,24 @@ kotlin {
 
         }
     }
+
+    android {
+        namespace = "com.example.mealplannerkmp"
+        compileSdk = 35
+        minSdk = 28
+//        defaultConfig {
+//            minSdk = 28
+//        }
+//        compileOptions {
+//            sourceCompatibility = JavaVersion.VERSION_1_8
+//            targetCompatibility = JavaVersion.VERSION_1_8
+//        }
+        compilerOptions {
+            jvmTarget = JvmTarget.JVM_17
+        }
+    }
 }
 
-android {
-    namespace = "com.example.mealplannerkmp"
-    compileSdk = 35
-    defaultConfig {
-        minSdk = 28
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-}
-dependencies {
-    implementation(libs.androidx.runtime.android)
-}
+//dependencies {
+//    implementation(libs.androidx.runtime.android)
+//}
