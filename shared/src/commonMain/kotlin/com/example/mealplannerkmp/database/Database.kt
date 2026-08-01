@@ -11,9 +11,11 @@ import com.example.mealplannerkmp.database.dao.IngredientDao
 import com.example.mealplannerkmp.database.dao.RecipeDao
 import com.example.mealplannerkmp.database.entitiy.Ingredient
 import com.example.mealplannerkmp.database.entitiy.Recipe
+import com.example.mealplannerkmp.database.entitiy.RecipeIngredient
 import com.example.mealplannerkmp.model.NutritionItem
 import com.example.mealplannerkmp.model.RecipeDifficulty
 import com.example.mealplannerkmp.model.RecipeNutrition
+import com.example.mealplannerkmp.model.RecipeQuantity
 import com.example.mealplannerkmp.model.RecipeTime
 import com.example.mealplannerkmp.model.RecipeTimeLine
 import kotlinx.coroutines.Dispatchers
@@ -21,7 +23,7 @@ import kotlinx.coroutines.IO
 import kotlinx.serialization.builtins.ListSerializer
 import kotlinx.serialization.json.Json
 
-@Database(entities = [Recipe::class, Ingredient::class], version = 1)
+@Database(entities = [Recipe::class, Ingredient::class, RecipeIngredient::class], version = 1)
 @ColumnTypeConverters(TypeConverters::class)
 @ConstructedBy(AppDataBaseConstructor::class)
 abstract class AppDatabase: RoomDatabase() {
@@ -71,5 +73,15 @@ object TypeConverters {
     @ColumnTypeConverter
     fun stringToRecipeTimeLines(value: String): List<RecipeTimeLine> {
         return Json.decodeFromString(ListSerializer( RecipeTimeLine.serializer()), value)
+    }
+
+    @ColumnTypeConverter
+    fun recipeQuantityToString(value: RecipeQuantity): String {
+        return Json.encodeToString(RecipeQuantity.serializer(), value)
+    }
+
+    @ColumnTypeConverter
+    fun stringToRecipeQuantity(value: String): RecipeQuantity {
+        return Json.decodeFromString(RecipeQuantity.serializer(), value)
     }
 }

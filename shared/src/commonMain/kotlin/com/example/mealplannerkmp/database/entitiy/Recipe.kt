@@ -35,6 +35,5 @@ data class RecipeWithIngredients(
         parentColumns = ["id"],
         entityColumns = ["recipeId"]
     )
-    val ingredients: List<RecipeWithIngredients>
-
+    val ingredients: List<RecipeIngredient>
 )

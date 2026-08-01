@@ -41,5 +41,5 @@ data class Ingredient(
 data class RecipeIngredient(
     val recipeId: Long,
     val ingredientId: Long,
-    @Embedded val quantity: RecipeQuantity // will use type convertor
+    val quantity: RecipeQuantity // will use type convertor
 )
