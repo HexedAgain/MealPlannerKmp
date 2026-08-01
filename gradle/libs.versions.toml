@@ -1,8 +1,8 @@
 [versions]
-agp = "9.0.0"
+agp = "9.3.1"
 kotlin = "2.4.10"
 compose = "1.11.4"
-compose-material3 = "1.1.2"
+compose-material3 = "1.4.0"
 androidx-activityCompose = "1.13.0"
 kotlin-serialization = "1.7.2"
 junit = "5.3.1"
