@@ -6,6 +6,7 @@ import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun RecipeListing(recipeListingViewModel: RecipeListingViewModel = koinViewModel()) {
+    recipeListingViewModel.insertRecipe()
     Column {
         Recipe()
     }

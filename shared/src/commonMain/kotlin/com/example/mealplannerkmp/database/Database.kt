@@ -1,20 +1,32 @@
 package com.example.mealplannerkmp.database
 
+import androidx.room3.ColumnTypeConverter
+import androidx.room3.ColumnTypeConverters
 import androidx.room3.ConstructedBy
 import androidx.room3.Database
 import androidx.room3.RoomDatabase
 import androidx.room3.RoomDatabaseConstructor
 import androidx.sqlite.driver.bundled.BundledSQLiteDriver
+import com.example.mealplannerkmp.database.dao.IngredientDao
+import com.example.mealplannerkmp.database.dao.RecipeDao
+import com.example.mealplannerkmp.database.entitiy.Ingredient
 import com.example.mealplannerkmp.database.entitiy.Recipe
+import com.example.mealplannerkmp.model.NutritionItem
+import com.example.mealplannerkmp.model.RecipeDifficulty
+import com.example.mealplannerkmp.model.RecipeNutrition
+import com.example.mealplannerkmp.model.RecipeTime
+import com.example.mealplannerkmp.model.RecipeTimeLine
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
+import kotlinx.serialization.builtins.ListSerializer
+import kotlinx.serialization.json.Json
 
-@Database(entities = [Recipe::class], version = 1)
+@Database(entities = [Recipe::class, Ingredient::class], version = 1)
+@ColumnTypeConverters(TypeConverters::class)
 @ConstructedBy(AppDataBaseConstructor::class)
 abstract class AppDatabase: RoomDatabase() {
-    override suspend fun clearAllTables() {
-        TODO("Not yet implemented")
-    }
+    abstract fun recipeDao(): RecipeDao
+    abstract fun ingredientDao(): IngredientDao
 }
 
 @Suppress("KotlinNoActualForExpect")
@@ -29,4 +41,35 @@ fun getRoomDatabase(
         .setDriver(BundledSQLiteDriver())
         .setQueryCoroutineContext(Dispatchers.IO)
         .build()
+}
+
+object TypeConverters {
+    @ColumnTypeConverter
+    fun recipeNutritionToString(value: RecipeNutrition): String {
+        return Json.encodeToString(RecipeNutrition.serializer(), value)
+    }
+    @ColumnTypeConverter
+    fun stringToRecipeNutrition(value: String): RecipeNutrition {
+        return Json.decodeFromString(RecipeNutrition.serializer(), value)
+    }
+
+    @ColumnTypeConverter
+    fun recipeTimeToString(value: RecipeTime): String {
+        return Json.encodeToString(RecipeTime.serializer(), value)
+    }
+
+    @ColumnTypeConverter
+    fun stringToRecipeTime(value: String): RecipeTime {
+        return Json.decodeFromString(RecipeTime.serializer(), value)
+    }
+
+    @ColumnTypeConverter
+    fun recipeTimeLinesToString(value: List<RecipeTimeLine>): String {
+        return Json.encodeToString(ListSerializer( RecipeTimeLine.serializer()), value)
+    }
+
+    @ColumnTypeConverter
+    fun stringToRecipeTimeLines(value: String): List<RecipeTimeLine> {
+        return Json.decodeFromString(ListSerializer( RecipeTimeLine.serializer()), value)
+    }
 }

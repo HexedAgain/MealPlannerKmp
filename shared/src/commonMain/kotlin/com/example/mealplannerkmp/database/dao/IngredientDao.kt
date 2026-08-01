@@ -4,10 +4,9 @@ import androidx.room3.Dao
 import androidx.room3.Insert
 import androidx.room3.OnConflictStrategy
 import com.example.mealplannerkmp.database.entitiy.Ingredient
-import com.example.mealplannerkmp.database.entitiy.Recipe
 
 @Dao
-interface RecipeDao {
+interface IngredientDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertRecipe(item: Recipe)
+    suspend fun insertIngredient(ingredient: Ingredient)
 }
