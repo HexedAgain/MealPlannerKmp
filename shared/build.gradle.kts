@@ -41,7 +41,7 @@ kotlin {
         androidMain.dependencies {
             implementation(libs.compose.ui)
             implementation(libs.compose.foundation)
-//            implementation(libs.koin.core)
+            implementation(libs.koin.core)
             implementation(libs.koin.android)
             implementation(libs.koin.compose)
         }
@@ -53,7 +53,7 @@ kotlin {
 
 android {
     namespace = "com.example.mealplannerkmp"
-    compileSdk = 34
+    compileSdk = 35
     defaultConfig {
         minSdk = 28
     }

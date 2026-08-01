@@ -3,6 +3,7 @@
 
     <application
         android:allowBackup="false"
+        android:name=".MealPlannerApplication"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
