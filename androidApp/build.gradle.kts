@@ -53,5 +53,6 @@ dependencies {
     implementation(libs.koin.android)
     implementation(libs.koin.core)
     implementation(libs.koin.compose)
+    implementation(libs.androidx.room3.runtime)
     debugImplementation(libs.compose.ui.tooling)
 }
