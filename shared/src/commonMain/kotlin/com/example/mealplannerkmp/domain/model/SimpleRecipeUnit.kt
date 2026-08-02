@@ -15,8 +15,9 @@ enum class SimpleRecipeUnit(override val shortName: String): RecipeUnit {
 }
 
 sealed interface ComplexRecipeUnit: RecipeUnit {
+    val qty: RecipeQuantity
     class Tin(
         override val shortName: String = "Tin",
-        qty: RecipeQuantity
+        override val qty: RecipeQuantity
     ): ComplexRecipeUnit
 }

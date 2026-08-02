@@ -11,7 +11,7 @@ import kotlinx.serialization.json.Json
 @Entity
 @ColumnTypeConverters(FoodCategoryConverter::class)
 data class IngredientEntity(
-    @PrimaryKey(autoGenerate = true) val id: Long,
+    @PrimaryKey(autoGenerate = true) val id: Long = 0,
     val name: String,
     val foodCategories: List<DbFoodCategory>,
 )

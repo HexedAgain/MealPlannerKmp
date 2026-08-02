@@ -1,5 +1,6 @@
 package com.example.mealplannerkmp.database.model.pojo.ingredient
 
+import com.example.mealplannerkmp.domain.model.IngredientClass
 import kotlinx.serialization.Serializable
 
 // does this need to be sealed!?

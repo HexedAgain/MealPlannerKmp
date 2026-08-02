@@ -16,8 +16,9 @@ enum class DbSimpleRecipeUnit(override val shortName: String): DbRecipeUnit {
 
 @Serializable
 sealed interface DbComplexRecipeUnit: DbRecipeUnit {
+    val qty: DbRecipeQuantity
     class Tin(
         override val shortName: String = "Tin",
-        qty: DbRecipeQuantity
+        override val qty: DbRecipeQuantity
     ): DbComplexRecipeUnit
 }

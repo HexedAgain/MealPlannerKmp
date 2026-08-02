@@ -7,12 +7,18 @@ import androidx.room3.PrimaryKey
 import com.example.mealplannerkmp.database.model.pojo.DbRecipeDifficulty
 import com.example.mealplannerkmp.database.model.pojo.nutrition.DbRecipeNutrition
 import com.example.mealplannerkmp.database.model.pojo.DbRecipeTime
+import com.example.mealplannerkmp.database.model.pojo.ingredient.DbIngredientSet
 import com.example.mealplannerkmp.database.model.pojo.timeline.DbRecipeTimeline
 import kotlinx.serialization.builtins.ListSerializer
 import kotlinx.serialization.json.Json
 
 @Entity
-@ColumnTypeConverters(NutritionConverter::class, TimeConverter::class, TimelineConverter::class)
+@ColumnTypeConverters(
+    NutritionConverter::class,
+    TimeConverter::class,
+    TimelineConverter::class,
+    IngredientConverter::class
+)
 data class RecipeEntity(
     @PrimaryKey(autoGenerate = true) val id: Long = 0,
     val title: String,
@@ -25,8 +31,21 @@ data class RecipeEntity(
     val difficulty: DbRecipeDifficulty,
     val serves: Int = 1,
     val ratings: Float? = null,
-    val timelineSteps: List<DbRecipeTimeline>
+    val timelineSteps: List<DbRecipeTimeline>,
+    val ingredients: List<DbIngredientSet>
 )
+
+class IngredientConverter {
+    @ColumnTypeConverter
+    fun recipeNutritionToString(value: List<DbIngredientSet>): String {
+        return Json.encodeToString(ListSerializer(DbIngredientSet.serializer()), value)
+    }
+
+    @ColumnTypeConverter
+    fun stringToIngredientSet(value: String): List<DbIngredientSet> {
+        return Json.decodeFromString(ListSerializer(DbIngredientSet.serializer()), value)
+    }
+}
 
 class NutritionConverter {
     @ColumnTypeConverter
