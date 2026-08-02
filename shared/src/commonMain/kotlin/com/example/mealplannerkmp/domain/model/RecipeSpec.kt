@@ -1,5 +1,16 @@
 package com.example.mealplannerkmp.domain.model
 
+import com.example.mealplannerkmp.domain.model.ingredient.Ingredient
+import com.example.mealplannerkmp.domain.model.ingredient.IngredientClass
+import com.example.mealplannerkmp.domain.model.ingredient.IngredientSet
+import com.example.mealplannerkmp.domain.model.nutrition.NutritionItem
+import com.example.mealplannerkmp.domain.model.nutrition.NutritionType
+import com.example.mealplannerkmp.domain.model.nutrition.RecipeNutrition
+import com.example.mealplannerkmp.domain.model.recipeUnit.ComplexRecipeUnit
+import com.example.mealplannerkmp.domain.model.recipeUnit.SimpleRecipeUnit
+import com.example.mealplannerkmp.domain.model.timeline.RecipeTimeLine
+import com.example.mealplannerkmp.domain.model.timeline.TimeLineStart
+
 val recipe = Recipe(
     title = "Spaghetti Bolognese",
     description = "Our best ever spaghetti bolognese is super easy and a true Italian classic with a meaty, chilli sauce. This pasta bolognese recipe is sure to become a family favourite.",
@@ -77,7 +88,11 @@ val recipe = Recipe(
                 ),
                 Ingredient(
                     name = "rosemary leaves",
-                    quantity = RecipeQuantity(qtyMin = 2.0f, qtyMax = 3.0f, unit = SimpleRecipeUnit.Sprig),
+                    quantity = RecipeQuantity(
+                        qtyMin = 2.0f,
+                        qtyMax = 3.0f,
+                        unit = SimpleRecipeUnit.Sprig
+                    ),
                     extraDetails = listOf("finely chopped")
                 ),
                 Ingredient(
@@ -94,7 +109,12 @@ val recipe = Recipe(
                     name = "plum tomatoes",
                     quantity = RecipeQuantity(
                         qty = 2.0f,
-                        unit = ComplexRecipeUnit.Tin(qty = RecipeQuantity(400f, unit = SimpleRecipeUnit.Gram))
+                        unit = ComplexRecipeUnit.Tin(
+                            qty = RecipeQuantity(
+                                400f,
+                                unit = SimpleRecipeUnit.Gram
+                            )
+                        )
                     )
                 ),
                 Ingredient(

@@ -1,5 +1,7 @@
 package com.example.mealplannerkmp.domain.model
 
+import com.example.mealplannerkmp.domain.model.recipeUnit.RecipeUnit
+import com.example.mealplannerkmp.domain.model.recipeUnit.SimpleRecipeUnit
 import kotlinx.serialization.Serializable
 
 @Serializable

@@ -1,5 +1,8 @@
 package com.example.mealplannerkmp.domain.model
 
+import com.example.mealplannerkmp.domain.model.ingredient.IngredientSet
+import com.example.mealplannerkmp.domain.model.nutrition.RecipeNutrition
+import com.example.mealplannerkmp.domain.model.timeline.RecipeTimeLine
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 

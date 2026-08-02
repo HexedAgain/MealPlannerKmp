@@ -1,7 +1,5 @@
 package com.example.mealplannerkmp.database
 
-import androidx.room3.ColumnTypeConverter
-import androidx.room3.ColumnTypeConverters
 import androidx.room3.ConstructedBy
 import androidx.room3.Database
 import androidx.room3.RoomDatabase
@@ -11,14 +9,8 @@ import com.example.mealplannerkmp.database.dao.IngredientDao
 import com.example.mealplannerkmp.database.dao.RecipeDao
 import com.example.mealplannerkmp.database.model.entity.IngredientEntity
 import com.example.mealplannerkmp.database.model.entity.RecipeEntity
-import com.example.mealplannerkmp.domain.model.RecipeNutrition
-import com.example.mealplannerkmp.domain.model.RecipeQuantity
-import com.example.mealplannerkmp.domain.model.RecipeTime
-import com.example.mealplannerkmp.domain.model.RecipeTimeLine
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
-import kotlinx.serialization.builtins.ListSerializer
-import kotlinx.serialization.json.Json
 
 @Database(entities = [RecipeEntity::class, IngredientEntity::class], version = 1)
 //@ColumnTypeConverters(TypeConverters::class)

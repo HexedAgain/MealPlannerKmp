@@ -15,19 +15,19 @@ import com.example.mealplannerkmp.database.model.pojo.recipeUnit.DbRecipeUnit
 import com.example.mealplannerkmp.database.model.pojo.recipeUnit.DbSimpleRecipeUnit
 import com.example.mealplannerkmp.database.model.pojo.timeline.DbRecipeTimeline
 import com.example.mealplannerkmp.database.model.pojo.timeline.DbTimelineStart
-import com.example.mealplannerkmp.domain.model.ComplexRecipeUnit
-import com.example.mealplannerkmp.domain.model.Ingredient
-import com.example.mealplannerkmp.domain.model.IngredientClass
-import com.example.mealplannerkmp.domain.model.IngredientSet
-import com.example.mealplannerkmp.domain.model.NutritionItem
+import com.example.mealplannerkmp.domain.model.recipeUnit.ComplexRecipeUnit
+import com.example.mealplannerkmp.domain.model.ingredient.Ingredient
+import com.example.mealplannerkmp.domain.model.ingredient.IngredientClass
+import com.example.mealplannerkmp.domain.model.ingredient.IngredientSet
+import com.example.mealplannerkmp.domain.model.nutrition.NutritionItem
 import com.example.mealplannerkmp.domain.model.Recipe
-import com.example.mealplannerkmp.domain.model.RecipeNutrition
+import com.example.mealplannerkmp.domain.model.nutrition.RecipeNutrition
 import com.example.mealplannerkmp.domain.model.RecipeQuantity
 import com.example.mealplannerkmp.domain.model.RecipeTime
-import com.example.mealplannerkmp.domain.model.RecipeTimeLine
-import com.example.mealplannerkmp.domain.model.RecipeUnit
-import com.example.mealplannerkmp.domain.model.SimpleRecipeUnit
-import com.example.mealplannerkmp.domain.model.TimeLineStart
+import com.example.mealplannerkmp.domain.model.timeline.RecipeTimeLine
+import com.example.mealplannerkmp.domain.model.recipeUnit.RecipeUnit
+import com.example.mealplannerkmp.domain.model.recipeUnit.SimpleRecipeUnit
+import com.example.mealplannerkmp.domain.model.timeline.TimeLineStart
 import kotlin.enums.enumEntries
 
 object EntityMapper {
