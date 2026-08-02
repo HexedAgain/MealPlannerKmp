@@ -31,8 +31,9 @@ import com.example.mealplannerkmp.domain.model.timeline.TimeLineStart
 import kotlin.enums.enumEntries
 
 object EntityMapper {
-    fun mapIngredientEntity(ingredient: Ingredient): IngredientEntity {
+    fun mapIngredientEntity(id: Long, ingredient: Ingredient): IngredientEntity {
         return IngredientEntity(
+            id = id,
             name = ingredient.name,
             // Note: when first entering an ingredient, these will be empty. Another process will
             // update the ingredients
@@ -40,8 +41,9 @@ object EntityMapper {
         )
     }
 
-    fun mapRecipeEntity(recipe: Recipe): RecipeEntity {
+    fun mapRecipeEntity(id: Long, recipe: Recipe): RecipeEntity {
         return RecipeEntity(
+            id = id,
             title = recipe.title,
             description = recipe.description,
             image = recipe.image,

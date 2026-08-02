@@ -12,11 +12,12 @@ class InsertRecipeUseCase(
     val ingredientDao: IngredientDao
 ) {
     operator fun invoke(recipe: Recipe, scope: CoroutineScope) {
+        var ingredientIdCounter: Long = 0
         scope.launch {
-            val recipeEntity = EntityMapper.mapRecipeEntity(recipe = recipe)
+            val recipeEntity = EntityMapper.mapRecipeEntity(id = 123, recipe = recipe)
             recipe.ingredients.forEach { ingredientSet ->
                 ingredientSet.ingredients.forEach { ingredient ->
-                    val ingredientEntity = EntityMapper.mapIngredientEntity(ingredient)
+                    val ingredientEntity = EntityMapper.mapIngredientEntity(id = ingredientIdCounter++, ingredient = ingredient)
                     ingredientDao.insertIngredient(ingredient = ingredientEntity)
                 }
             }

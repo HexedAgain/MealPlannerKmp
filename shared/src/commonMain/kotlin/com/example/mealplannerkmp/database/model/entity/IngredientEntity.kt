@@ -3,15 +3,22 @@ package com.example.mealplannerkmp.database.model.entity
 import androidx.room3.ColumnTypeConverter
 import androidx.room3.ColumnTypeConverters
 import androidx.room3.Entity
+import androidx.room3.Index
 import androidx.room3.PrimaryKey
 import com.example.mealplannerkmp.database.model.pojo.DbFoodCategory
 import kotlinx.serialization.builtins.ListSerializer
 import kotlinx.serialization.json.Json
 
-@Entity
+@Entity(
+    tableName = "ingredient",
+    indices = [
+        Index("name", unique = true)
+    ]
+)
 @ColumnTypeConverters(FoodCategoryConverter::class)
 data class IngredientEntity(
-    @PrimaryKey(autoGenerate = true) val id: Long = 0,
+    // Note: server will be auto-generating the key
+    @PrimaryKey val id: Long,
     val name: String,
     val foodCategories: List<DbFoodCategory>,
 )

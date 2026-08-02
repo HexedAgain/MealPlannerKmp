@@ -12,7 +12,9 @@ import com.example.mealplannerkmp.database.model.pojo.timeline.DbRecipeTimeline
 import kotlinx.serialization.builtins.ListSerializer
 import kotlinx.serialization.json.Json
 
-@Entity
+@Entity(
+    tableName = "recipe"
+)
 @ColumnTypeConverters(
     NutritionConverter::class,
     TimeConverter::class,
@@ -20,7 +22,8 @@ import kotlinx.serialization.json.Json
     IngredientConverter::class
 )
 data class RecipeEntity(
-    @PrimaryKey(autoGenerate = true) val id: Long = 0,
+    // Note: server will be auto-generating the key
+    @PrimaryKey val id: Long,
     val title: String,
     val description: String,
     val image: String? = null,

@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "67f57f4f5cca9fe6e34262d9ed1a24cd",
+    "identityHash": "89c9c4e15dc9d90b95414f37ff1757fb",
     "entities": [
       {
-        "tableName": "RecipeEntity",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT NOT NULL, `description` TEXT NOT NULL, `image` TEXT, `video` TEXT, `nutrition` TEXT, `preparationTime` TEXT, `cookTime` TEXT NOT NULL, `difficulty` TEXT NOT NULL, `serves` INTEGER NOT NULL, `ratings` REAL, `timelineSteps` TEXT NOT NULL, `ingredients` TEXT NOT NULL)",
+        "tableName": "recipe",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `title` TEXT NOT NULL, `description` TEXT NOT NULL, `image` TEXT, `video` TEXT, `nutrition` TEXT, `preparationTime` TEXT, `cookTime` TEXT NOT NULL, `difficulty` TEXT NOT NULL, `serves` INTEGER NOT NULL, `ratings` REAL, `timelineSteps` TEXT NOT NULL, `ingredients` TEXT NOT NULL, PRIMARY KEY(`id`))",
         "fields": [
           {
             "fieldPath": "id",
@@ -83,15 +83,15 @@
           }
         ],
         "primaryKey": {
-          "autoGenerate": true,
+          "autoGenerate": false,
           "columnNames": [
             "id"
           ]
         }
       },
       {
-        "tableName": "IngredientEntity",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT NOT NULL, `foodCategories` TEXT NOT NULL)",
+        "tableName": "ingredient",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `name` TEXT NOT NULL, `foodCategories` TEXT NOT NULL, PRIMARY KEY(`id`))",
         "fields": [
           {
             "fieldPath": "id",
@@ -113,16 +113,27 @@
           }
         ],
         "primaryKey": {
-          "autoGenerate": true,
+          "autoGenerate": false,
           "columnNames": [
             "id"
           ]
-        }
+        },
+        "indices": [
+          {
+            "name": "index_ingredient_name",
+            "unique": true,
+            "columnNames": [
+              "name"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_ingredient_name` ON `${TABLE_NAME}` (`name`)"
+          }
+        ]
       }
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '67f57f4f5cca9fe6e34262d9ed1a24cd')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '89c9c4e15dc9d90b95414f37ff1757fb')"
     ]
   }
 }
