@@ -1,4 +1,4 @@
-package com.example.mealplannerkmp.model
+package com.example.mealplannerkmp.domain.model
 
 interface RecipeUnit {
     val shortName: String

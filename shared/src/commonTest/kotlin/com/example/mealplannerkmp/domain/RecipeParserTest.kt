@@ -1,5 +1,8 @@
-package com.example.mealplannerkmp.model
+package com.example.mealplannerkmp.domain
 
+import com.example.mealplannerkmp.domain.model.Recipe
+import com.example.mealplannerkmp.domain.model.RecipeParser
+import com.example.mealplannerkmp.domain.model.RecipeTime
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

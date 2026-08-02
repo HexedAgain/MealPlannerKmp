@@ -1,4 +1,4 @@
-package com.example.mealplannerkmp.model
+package com.example.mealplannerkmp.domain.model
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -10,6 +10,7 @@ import kotlinx.serialization.Serializable
 data class Recipe(
     val title: String,
     val description: String,
+    val author: String? = null,
     val image: String? = null,
     val video: String? = null,
     val nutrition: RecipeNutrition? = null,

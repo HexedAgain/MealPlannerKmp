@@ -1,10 +1,10 @@
-package com.example.mealplannerkmp.model
+package com.example.mealplannerkmp.database.model.pojo
 
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class RecipeStep (
+class DbRecipeStep (
     val title: String,
     val body: String,
-    val time: RecipeTime
+    val time: DbRecipeTime
 )

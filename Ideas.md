@@ -2732,3 +2732,17 @@ A cooking companion says:
 The latter feels much more aligned with MealMate.
 
 Although I reserve the right to gently judge pineapple in a carbonara. Some lines must exist. 😂
+
+
+One other interesting thought
+
+For your creator marketplace, images may become part of the premium experience.
+
+A creator selling a recipe might provide:
+
+beautiful hero images
+step-by-step photos
+short clips
+"what the sauce should look like" photos
+
+Your image pipeline then becomes a creator feature, not just infrastructure.

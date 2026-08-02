@@ -1,6 +1,4 @@
-package com.example.mealplannerkmp.model
-
-import kotlin.math.min
+package com.example.mealplannerkmp.domain.model
 
 val recipe = Recipe(
     title = "Spaghetti Bolognese",

@@ -7,6 +7,9 @@
 > It is a cooking companion.
 >
 > The goal is not to store recipes, but to guide a cook from the first ingredient to the finished meal with confidence.
+> 
+> Note: the architecture here came about through asking questions of chatgpt, which then drafted this document. As such it
+> should not necessarily be taken at face value. It may need further refinement
 
 ---
 
@@ -72,6 +75,56 @@ Rules:
 - DTOs never reach business logic.
 - UI never depends directly on persistence.
 - Domain models contain business logic.
+
+---
+
+# Media / Assets
+
+Media is referenced by ID rather than URL.
+
+Recipes do not own image locations.
+
+The server manages:
+
+- storage
+- processing
+- caching
+- CDN delivery
+- permissions
+
+Clients request media by ID and cache locally.
+
+This allows images to evolve independently from recipe data.
+
+---
+
+# Media Pipeline
+
+Images are assets, not recipe data.
+
+Recipes reference media by ID.
+
+The media service is responsible for:
+
+- upload handling
+- resizing
+- compression
+- format conversion
+- CDN delivery
+- caching
+
+Clients may optimise uploads before transmission, but the server owns final processing.
+
+Images should be stored in efficient formats such as WebP where appropriate.
+
+Multiple variants should be generated:
+
+- thumbnail
+- recipe card
+- full resolution
+- future formats
+
+The cooking experience should remain functional offline once required assets have been cached.
 
 ---
 
@@ -159,6 +212,21 @@ Recipe Family
 Users search for dishes.
 
 Creators publish variants.
+
+---
+
+## Recipe evolution
+
+Recipes should not assume that a recipe is a single immutable document forever.
+
+Future support may include:
+
+- creator versions
+- user customisations
+- recipe lineage
+- derived recipes
+
+The initial implementation should avoid designs that make future versioning impossible.
 
 ---
 
@@ -774,6 +842,37 @@ MealMate provides:
 - payment processing
 
 Revenue through marketplace commission.
+
+---
+
+# Cost and Abuse Protection
+
+External services must be protected against uncontrolled usage.
+
+Expensive operations must not be directly exposed to anonymous clients.
+
+Examples:
+
+- AI processing
+- image processing
+- video processing
+- large exports
+
+Use:
+
+- authentication
+- rate limits
+- quotas
+- asynchronous processing queues
+- billing alerts
+
+All user-generated content should have:
+
+- size limits
+- type validation
+- ownership checks
+
+The system should fail safely rather than allow unlimited cost growth.
 
 ---
 

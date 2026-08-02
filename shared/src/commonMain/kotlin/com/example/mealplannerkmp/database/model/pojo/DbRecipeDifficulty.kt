@@ -1,9 +1,9 @@
-package com.example.mealplannerkmp.model
+package com.example.mealplannerkmp.database.model.pojo
 
 import kotlinx.serialization.Serializable
 
 @Serializable
-enum class RecipeDifficulty {
+enum class DbRecipeDifficulty {
     Beginner,
     Easy,
     Advanced,
