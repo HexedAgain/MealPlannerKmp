@@ -38,7 +38,7 @@ data class RecipeEntity(
 class IngredientConverter {
     @ColumnTypeConverter
     fun recipeNutritionToString(value: List<DbIngredientSet>): String {
-        return Json.encodeToString(ListSerializer(DbIngredientSet.serializer()), value)
+        return Json { useArrayPolymorphism = true } .encodeToString(ListSerializer(DbIngredientSet.serializer()), value)
     }
 
     @ColumnTypeConverter
@@ -50,7 +50,7 @@ class IngredientConverter {
 class NutritionConverter {
     @ColumnTypeConverter
     fun recipeNutritionToString(value: DbRecipeNutrition): String {
-        return Json.encodeToString(DbRecipeNutrition.serializer(), value)
+        return Json { useArrayPolymorphism = true }.encodeToString(DbRecipeNutrition.serializer(), value)
     }
 
     @ColumnTypeConverter

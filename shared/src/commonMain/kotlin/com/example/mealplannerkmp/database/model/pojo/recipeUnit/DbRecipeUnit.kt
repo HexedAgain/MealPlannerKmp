@@ -1,5 +1,8 @@
 package com.example.mealplannerkmp.database.model.pojo.recipeUnit
 
-interface DbRecipeUnit {
+import kotlinx.serialization.Serializable
+
+@Serializable
+sealed interface DbRecipeUnit {
     val shortName: String
 }

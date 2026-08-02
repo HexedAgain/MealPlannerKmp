@@ -8,11 +8,10 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 class InsertRecipeUseCase(
-    val scope: CoroutineScope,
     val recipeDao: RecipeDao,
     val ingredientDao: IngredientDao
 ) {
-    operator fun invoke(recipe: Recipe) {
+    operator fun invoke(recipe: Recipe, scope: CoroutineScope) {
         scope.launch {
             val recipeEntity = EntityMapper.mapRecipeEntity(recipe = recipe)
             recipe.ingredients.forEach { ingredientSet ->

@@ -11,7 +11,7 @@ import com.example.mealplannerkmp.domain.model.recipeUnit.SimpleRecipeUnit
 import com.example.mealplannerkmp.domain.model.timeline.RecipeTimeLine
 import com.example.mealplannerkmp.domain.model.timeline.TimeLineStart
 
-val recipe = Recipe(
+val sampleRecipe = Recipe(
     title = "Spaghetti Bolognese",
     description = "Our best ever spaghetti bolognese is super easy and a true Italian classic with a meaty, chilli sauce. This pasta bolognese recipe is sure to become a family favourite.",
     image = "https://media.delight.video/0c18e53b610964fac175fe0e757adc30557e79b7/3bc1208e7a20c38eba142fc1478c3b3407c76f40/POSTER_USER/v0/3bc1208e7a20c38eba142fc1478c3b3407c76f40.jpeg?quality=90",

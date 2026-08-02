@@ -1,14 +1,14 @@
 package com.example.mealplannerkmp.android.homescreen
 
 import androidx.lifecycle.ViewModel
-import com.example.mealplannerkmp.database.AppDatabase
-import com.example.mealplannerkmp.database.dao.RecipeDao
+import androidx.lifecycle.viewModelScope
+import com.example.mealplannerkmp.domain.model.sampleRecipe
+import com.example.mealplannerkmp.domain.usecase.InsertRecipeUseCase
 
 class RecipeListingViewModel(
-    private val appDatabase: AppDatabase,
+    private val insertRecipeUseCase: InsertRecipeUseCase
 ): ViewModel() {
     fun insertRecipe() {
-        val thing = appDatabase.recipeDao()
-        val x = 4
+        insertRecipeUseCase.invoke(recipe = sampleRecipe, scope = viewModelScope)
     }
 }
