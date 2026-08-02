@@ -54,5 +54,7 @@ dependencies {
     implementation(libs.koin.core)
     implementation(libs.koin.compose)
     implementation(libs.androidx.room3.runtime)
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network)
     debugImplementation(libs.compose.ui.tooling)
 }
